@@ -33,12 +33,10 @@
                                 <span class="cel-temperature">+7</span>
                             </li>
                             <li><span class="time-now">Thursday 8 January 2015 / 21:20</span></li>
-                            <li><a href="#">Log In</a></li>
                             <li><a href="{{ route('contacto') }}">contacto</a></li>
-                            <li><a href="#">Purchase Theme</a></li>
                         </ul>
                     </div>	
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <ul class="social-icons">
                             <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -47,7 +45,21 @@
                             <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
                         </ul>
-                    </div>	
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row">
+                            <!-- Exibir Logout apenas se o usuário estiver logado -->
+                            @auth
+                            <div class="col-md-3">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </div>
+                            @endauth
+                        </div>
+                    </div>
+                             
                 </div>
             </div>
         </div>

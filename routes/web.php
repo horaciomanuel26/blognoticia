@@ -39,3 +39,13 @@ Route::get('/food', function () {
     return view('admin.food.index');
 })->name('food');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/', function () {
+        return view('index');
+    })->name('index');
+});
